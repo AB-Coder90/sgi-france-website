@@ -9,6 +9,8 @@ import About from './components/About';
 import Services from './components/Services';
 import { ThemeProvider } from './components/theme-provider';
 import { LogoMarquee } from './components/LogoMarquee';
+import { BlogListPage } from './pages/BlogListPage';
+import { BlogPostPage } from './pages/BlogPostPage';
 
 const ScrollToSection = ({ hash }: { hash: string }) => {
   if (hash) {
@@ -92,13 +94,8 @@ const AppContent = () => {
                 </div>
               </section>
             } />
-            <Route path="/blog" element={
-              <section className="pt-32 pb-20">
-                <div className="container mx-auto px-4">
-                  <Blog />
-                </div>
-              </section>
-            } />
+            <Route path="/blog" element={<BlogListPage />} />
+            <Route path="/blog/:slug" element={<BlogPostPage />} />
             <Route path="/contact" element={
               <section className="pt-32 pb-20">
                 <div className="container mx-auto px-4">
