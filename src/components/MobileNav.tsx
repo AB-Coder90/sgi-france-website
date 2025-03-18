@@ -9,7 +9,6 @@ interface MobileNavProps {
 
 const menuItems = [
   { to: '/', label: 'Accueil' },
-  { to: '/solutions', label: 'Solutions' },
   { to: '/services', label: 'Services' },
   { to: '/about', label: 'À propos' },
   { to: '/configurator', label: 'Configurateur' },

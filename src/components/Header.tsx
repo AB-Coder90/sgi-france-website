@@ -59,12 +59,6 @@ export const Header = () => {
           {/* Navigation Desktop */}
           <div className="hidden md:flex items-center space-x-8">
             <Link
-              to="/solutions"
-              className="text-base font-medium text-primary/80 hover:text-primary transition-colors duration-200"
-            >
-              Solutions
-            </Link>
-            <Link
               to="/services"
               className="text-base font-medium text-primary/80 hover:text-primary transition-colors duration-200"
             >
