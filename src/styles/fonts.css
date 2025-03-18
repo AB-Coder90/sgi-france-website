@@ -1,0 +1,27 @@
+/* Roboto Condensed */
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('https://fonts.gstatic.com/s/robotocondensed/v25/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url('https://fonts.gstatic.com/s/robotocondensed/v25/ieVi2ZhZI2eCN5jzbjEETS9weq8-32meGCQYbw.woff2') format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Eurostile (using a system font stack as fallback since Eurostile is a commercial font) */
+@font-face {
+  font-family: 'Eurostile';
+  src: local('Eurostile'),
+       local('Eurostile Next'),
+       local('Arial'),
+       local('Helvetica Neue');
+  font-weight: normal;
+  font-style: normal;
+}
