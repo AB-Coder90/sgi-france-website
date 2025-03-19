@@ -1,125 +1,113 @@
 import { BlogPost } from '@/types/blog';
 
+// Fonction pour obtenir un article par son slug
+export function getPostBySlug(slug: string): BlogPost | undefined {
+  return blogPosts.find(post => post.slug === slug);
+}
+
+// Fonction utilitaire pour obtenir des articles liés
+export function getRelatedPosts(currentPostId: number, limit: number = 2): BlogPost[] {
+  return blogPosts
+    .filter(post => post.id !== currentPostId)
+    .sort(() => Math.random() - 0.5)
+    .slice(0, limit);
+}
+
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
-    slug: 'innovation-pulverisation-automobile',
-    title: 'Innovation dans la Pulvérisation Automobile',
-    description: 'Découvrez les dernières avancées technologiques en matière de pulvérisation pour le secteur automobile.',
+    slug: 'sata-jet-x-revolution-pulverisation',
+    title: 'SATA Jet X : La Révolution dans la Pulvérisation Automobile',
+    description: 'SATA lance son nouveau pistolet de pulvérisation Jet X, établissant de nouveaux standards dans l\'industrie automobile.',
     category: 'Automobile',
-    date: '15 Mars 2024',
-    readTime: '5 min',
-    image: '/images/blog/automotive-spray.jpg',
+    date: '18 Mars 2025',
+    readTime: '5 min de lecture',
+    image: '/images/blog/automotive/sata-jet-x.jpg',
     author: {
-      name: 'Thomas Laurent',
+      name: 'Thomas Martin',
       role: 'Expert en Solutions Automobiles',
-      avatar: '/images/team/thomas.jpg'
+      avatar: '/images/team/thomas-martin.jpg'
     },
     content: {
-      introduction: 'Le secteur automobile est en constante évolution, et les technologies de pulvérisation ne font pas exception. Les nouvelles exigences en matière de qualité de finition, d\'efficacité énergétique et de respect de l\'environnement poussent les industriels à innover continuellement.',
+      introduction: 'SATA, leader mondial des équipements de pulvérisation, vient de dévoiler son pistolet révolutionnaire Jet X lors du salon Automechanika à Francfort. Cette innovation majeure marque une nouvelle ère dans la technologie de pulvérisation automobile.',
       sections: [
         {
-          title: 'Les Nouvelles Technologies HVLP',
-          content: 'La technologie HVLP (High Volume Low Pressure) continue d\'évoluer avec l\'introduction de systèmes de contrôle numérique permettant une précision accrue et une réduction significative des pertes de produit. Les nouveaux pistolets SATA intègrent désormais des capteurs intelligents qui ajustent automatiquement les paramètres de pulvérisation en fonction des conditions ambiantes.',
-          image: '/images/blog/hvlp-tech.jpg'
+          title: 'Une Technologie de Buse Innovante',
+          content: 'Le nouveau système de labyrinthe inventé par SATA guide l\'air dans la buse de manière à ce qu\'il sorte sans turbulence, établissant ainsi de nouveaux standards en matière d\'atomisation. Cette innovation permet une application plus précise et uniforme de la peinture.\n\nSource : Autobody News - "Many New Products Coming from SATA", 2024',
+          image: '/images/blog/automotive/jet-x-nozzle.jpg'
         },
         {
-          title: 'L\'Intelligence Artificielle au Service de la Pulvérisation',
-          content: 'L\'intégration de l\'IA dans les systèmes de pulvérisation permet désormais une optimisation en temps réel des paramètres de projection. Les algorithmes analysent en continu la qualité de la finition et ajustent automatiquement les réglages pour maintenir une qualité constante, réduisant ainsi les défauts et les reprises.',
-        },
-        {
-          title: 'Durabilité et Éco-responsabilité',
-          content: 'Les nouveaux systèmes de pulvérisation sont conçus avec une attention particulière portée à l\'impact environnemental. Les technologies de récupération des overspray et de filtration avancée permettent de réduire considérablement les émissions de COV et la consommation de peinture.',
-          image: '/images/blog/eco-spray.jpg'
+          title: 'L\'Ère Numérique dans la Cabine de Peinture',
+          content: 'Le Jet X intègre des fonctionnalités numériques avancées qui permettent un contrôle précis des paramètres de pulvérisation. Les peintres peuvent désormais ajuster et surveiller en temps réel la pression, le débit et d\'autres paramètres critiques via une interface numérique intuitive.\n\nSource : Surface Technology Info - "SATA presents painting technology innovations", 2024',
+          image: '/images/blog/automotive/digital-controls.jpg'
         }
       ],
-      conclusion: 'L\'avenir de la pulvérisation automobile s\'oriente clairement vers des solutions plus intelligentes, plus précises et plus respectueuses de l\'environnement. Ces innovations permettent non seulement d\'améliorer la qualité des finitions mais aussi de réduire les coûts opérationnels et l\'impact environnemental.'
+      conclusion: 'Le lancement du SATA Jet X représente une avancée significative dans l\'industrie de la pulvérisation automobile. Cette innovation démontre l\'engagement continu de SATA à repousser les limites de la technologie pour offrir des solutions toujours plus performantes aux professionnels.'
     },
-    tags: ['Automobile', 'Innovation', 'HVLP', 'Intelligence Artificielle', 'Écologie'],
-    relatedPosts: [2, 3]
+    tags: ['SATA', 'Innovation', 'Jet X', 'Technologie Numérique']
   },
   {
     id: 2,
-    slug: 'art-chocolat-sgi',
-    title: 'L\'Art du Chocolat avec SGI',
-    description: 'Comment nos équipements révolutionnent le travail des maîtres chocolatiers.',
+    slug: 'innovations-confiserie-2025',
+    title: 'Les Dernières Innovations en Confiserie Industrielle',
+    description: 'Découvrez les nouvelles technologies qui transforment l\'industrie de la confiserie en 2025.',
     category: 'Métiers du Dessert',
-    date: '10 Mars 2024',
-    readTime: '4 min',
-    image: '/images/blog/chocolate.jpg',
+    date: '17 Mars 2025',
+    readTime: '4 min de lecture',
+    image: '/images/blog/dessert/confectionery-tech.jpg',
     author: {
-      name: 'Marie Dubois',
+      name: 'Sophie Dubois',
       role: 'Experte en Solutions Alimentaires',
-      avatar: '/images/team/marie.jpg'
+      avatar: '/images/team/sophie-dubois.jpg'
     },
     content: {
-      introduction: 'La chocolaterie artisanale connaît une véritable révolution grâce aux technologies de pulvérisation modernes. Les maîtres chocolatiers peuvent désormais atteindre des niveaux de précision et de créativité inégalés dans leurs créations.',
+      introduction: 'Le secteur de la confiserie connaît une croissance remarquable, avec une valeur globale de 619,25 milliards de dollars et une croissance annuelle prévue de 5,47% sur les cinq prochaines années. Les innovations technologiques jouent un rôle crucial dans cette expansion.',
       sections: [
         {
-          title: 'Précision et Contrôle',
-          content: 'Les systèmes de pulvérisation de nouvelle génération permettent un contrôle ultra-précis de la température et de la viscosité du chocolat. Cette maîtrise permet d\'obtenir des finitions parfaites et des effets visuels spectaculaires impossibles à réaliser manuellement.',
-          image: '/images/blog/chocolate-spray.jpg'
+          title: 'Automatisation et Personnalisation',
+          content: 'Les grands acteurs comme Mondelēz International investissent massivement dans les technologies d\'automatisation et de personnalisation. Les systèmes de pulvérisation de nouvelle génération permettent une personnalisation précise des enrobages et des finitions.\n\nSource : Confectionery News - "Meet the top technology trends shaping confectionery in 2025", Février 2025',
+          image: '/images/blog/dessert/automated-coating.jpg'
         },
         {
-          title: 'Innovation dans les Textures',
-          content: 'Grâce à nos technologies de pulvérisation avancées, les artisans peuvent créer des textures variées et des effets de surface uniques. Du velours au brillant, en passant par des effets givrés, les possibilités créatives sont démultipliées.',
-        },
-        {
-          title: 'Efficacité et Productivité',
-          content: 'L\'automatisation des processus de pulvérisation permet aux artisans de se concentrer sur la créativité tout en augmentant leur productivité. Les systèmes modernes réduisent également le gaspillage de matière première et simplifient le nettoyage.',
-          image: '/images/blog/chocolate-production.jpg'
+          title: 'Durabilité et Efficacité',
+          content: 'Les nouveaux équipements de pulvérisation pour le chocolat intègrent des technologies de récupération et de recyclage, réduisant considérablement le gaspillage. Ces systèmes permettent également une réduction significative de la consommation d\'énergie.\n\nSource : International Confectionery Magazine - "Chocolate Trends for 2025", Janvier 2025',
+          image: '/images/blog/dessert/sustainable-production.jpg'
         }
       ],
-      conclusion: 'La technologie de pulvérisation moderne ouvre de nouvelles perspectives dans l\'art du chocolat. Elle permet aux artisans de repousser les limites de leur créativité tout en optimisant leur production.'
+      conclusion: 'L\'industrie de la confiserie entre dans une nouvelle ère où la technologie permet non seulement d\'améliorer la qualité et l\'efficacité de la production, mais aussi de répondre aux exigences croissantes en matière de durabilité.'
     },
-    tags: ['Chocolaterie', 'Innovation', 'Artisanat', 'Automatisation', 'Productivité'],
-    relatedPosts: [1, 3]
+    tags: ['Innovation', 'Confiserie', 'Automatisation', 'Durabilité']
   },
   {
     id: 3,
-    slug: 'automatisation-industrielle-4-0',
-    title: 'Automatisation Industrielle 4.0',
-    description: 'Les solutions d\'automatisation intelligente pour l\'industrie du futur.',
+    slug: 'tendances-industrie-peinture-2025',
+    title: 'Les Tendances de l\'Industrie de la Peinture en 2025',
+    description: 'Analyse des dernières innovations et tendances dans l\'industrie de la peinture et du revêtement.',
     category: 'Industrie',
-    date: '5 Mars 2024',
-    readTime: '6 min',
-    image: '/images/blog/industry.jpg',
+    date: '16 Mars 2025',
+    readTime: '6 min de lecture',
+    image: '/images/blog/industry/paint-trends.jpg',
     author: {
-      name: 'Philippe Martin',
-      role: 'Directeur Innovation',
-      avatar: '/images/team/philippe.jpg'
+      name: 'Pierre Laurent',
+      role: 'Ingénieur Solutions Industrielles',
+      avatar: '/images/team/pierre-laurent.jpg'
     },
     content: {
-      introduction: 'L\'industrie 4.0 représente une nouvelle ère dans l\'automatisation industrielle, où la connectivité et l\'intelligence artificielle transforment radicalement les processus de production.',
+      introduction: 'Le marché des machines de pulvérisation de peinture, évalué à 4,78 milliards de dollars en 2023, devrait connaître une croissance de 5,2% entre 2024 et 2030. Cette expansion est portée par des innovations majeures dans les technologies de pulvérisation.',
       sections: [
         {
-          title: 'L\'IoT dans l\'Industrie',
-          content: 'L\'Internet des Objets (IoT) révolutionne la surveillance et le contrôle des systèmes de pulvérisation. Les capteurs connectés permettent une supervision en temps réel et une maintenance prédictive, réduisant les temps d\'arrêt et optimisant les performances.',
-          image: '/images/blog/iot-industry.jpg'
+          title: 'Intelligence Artificielle et Automatisation',
+          content: 'L\'intégration de l\'IA dans les systèmes de pulvérisation industrielle permet une optimisation en temps réel des paramètres de projection et une réduction significative des déchets. Les systèmes automatisés peuvent désormais ajuster leurs paramètres en fonction des conditions environnementales et des caractéristiques du substrat.\n\nSource : StartUs Insights - "Top 10 Paint Industry Trends in 2025", 2025',
+          image: '/images/blog/industry/ai-coating.jpg'
         },
         {
-          title: 'Robotique Collaborative',
-          content: 'Les cobots équipés de systèmes de pulvérisation avancés travaillent désormais aux côtés des opérateurs humains. Cette collaboration homme-machine permet d\'allier précision automatisée et expertise humaine pour des résultats optimaux.',
-        },
-        {
-          title: 'Analyse de Données en Temps Réel',
-          content: 'Les systèmes d\'analyse Big Data permettent d\'optimiser continuellement les processus de pulvérisation. L\'analyse en temps réel des paramètres de production permet d\'ajuster automatiquement les réglages pour maintenir une qualité optimale.',
-          image: '/images/blog/data-analysis.jpg'
+          title: 'Solutions Écologiques',
+          content: 'Les fabricants développent des systèmes de pulvérisation spécialement conçus pour les peintures à base d\'eau et les revêtements écologiques. Ces systèmes intègrent des technologies avancées de récupération et de filtration pour minimiser l\'impact environnemental.\n\nSource : Surface Technology Info - "Paint Industry Innovation Report", 2025',
+          image: '/images/blog/industry/eco-coating.jpg'
         }
       ],
-      conclusion: 'L\'automatisation industrielle 4.0 représente un bond en avant majeur dans l\'efficacité et la qualité des processus de pulvérisation. Cette révolution technologique permet aux industries de rester compétitives tout en répondant aux exigences croissantes en matière de qualité et de durabilité.'
+      conclusion: 'L\'industrie de la peinture connaît une transformation profonde grâce à l\'adoption de technologies intelligentes et durables. Ces innovations permettent non seulement d\'améliorer la qualité des finitions mais aussi de répondre aux enjeux environnementaux.'
     },
-    tags: ['Industrie 4.0', 'IoT', 'Automatisation', 'Big Data', 'Innovation'],
-    relatedPosts: [1, 2]
+    tags: ['Industrie', 'Innovation', 'IA', 'Durabilité']
   }
 ];
-
-export const getPostBySlug = (slug: string): BlogPost | undefined => {
-  return blogPosts.find(post => post.slug === slug);
-};
-
-export const getRelatedPosts = (postId: number): BlogPost[] => {
-  const post = blogPosts.find(p => p.id === postId);
-  if (!post?.relatedPosts) return [];
-  return blogPosts.filter(p => post.relatedPosts?.includes(p.id));
-};
